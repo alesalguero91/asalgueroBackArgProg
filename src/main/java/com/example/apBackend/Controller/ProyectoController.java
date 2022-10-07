@@ -35,7 +35,7 @@ public class ProyectoController {
         return iproyService.verProyectos();
     }
   
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PostMapping("/proyecto/crear")
     public void crearProy(@RequestBody Proyectos proy){
        iproyService.crearProyectos(proy);
@@ -47,13 +47,13 @@ public class ProyectoController {
         return iproyService.buscarProyectos(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @DeleteMapping("/proyecto/borrar/{id}")
     public void borrarProy(@PathVariable Long id){
         iproyService.borrarProyectos(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PutMapping("/proyecto/editar/{id}")
     public Proyectos editarProy(@PathVariable Long id, @RequestBody Proyectos proyecto){
         Proyectos proy = iproyService.buscarProyectos(id);

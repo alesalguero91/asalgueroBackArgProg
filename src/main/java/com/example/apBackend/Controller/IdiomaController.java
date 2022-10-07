@@ -35,7 +35,7 @@ public class IdiomaController {
         return iIdiomaServ.verIdiomas();
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PostMapping("/idioma/crear")
     public void crearIdioma(@RequestBody Idiomas lang){
         iIdiomaServ.crearIdiomas(lang);
@@ -48,13 +48,13 @@ public class IdiomaController {
     }
     
     
-    @PreAuthorize("hasRole('ADMIN')")
+   
     @DeleteMapping("/idioma/borrar/{id}")
     public void BorrarIdioma(@PathVariable Long id){
         iIdiomaServ.borrarIdiomas(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+   
     @PutMapping("/idioma/editar/{id}")
     public Idiomas editarIdioma(@PathVariable Long id, @RequestBody Idiomas idioma){
         Idiomas lang = iIdiomaServ.buscarIdiomas(id);

@@ -34,7 +34,7 @@ public class ExperienciaController {
         return iExperienciaService.verExperiencia();
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+   
     @PostMapping("/experiencia/crear")
     public void crearExperiencia(@RequestBody Experiencia exp){
         iExperienciaService.crearExperiencia(exp);
@@ -46,13 +46,13 @@ public class ExperienciaController {
         return iExperienciaService.buscarExperiencia(id);
     }
      
-    @PreAuthorize("hasRole('ADMIN')")
+   
     @DeleteMapping("/experiencia/borrar/{id}")
     public void borrarExp(@PathVariable Long id){
         iExperienciaService.borrarExperiencia(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+  
     @PutMapping("/experiencia/editar/{id}")
     public Experiencia editarExp(@PathVariable Long id, @RequestBody Experiencia experiencia){
         Experiencia exp = iExperienciaService.buscarExperiencia(id);

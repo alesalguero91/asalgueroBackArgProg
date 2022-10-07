@@ -35,7 +35,7 @@ public class SkillController {
         return iSkillServ.verSkills();
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+  
     @PostMapping("/skill/crear")
     public void crearSkill(@RequestBody Skills sk){
         iSkillServ.crearSkill(sk);
@@ -47,13 +47,13 @@ public class SkillController {
         return iSkillServ.buscarSkill(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @DeleteMapping("/skill/borrar/{id}")
     public void borrarSkill(@PathVariable Long id){
         iSkillServ.borrarSkills(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+   
     @PutMapping("/skill/editar/{id}")
     public Skills editarSkill(@PathVariable Long id, @RequestBody Skills skill){
         Skills sk = iSkillServ.buscarSkill(id);

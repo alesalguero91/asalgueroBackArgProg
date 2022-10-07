@@ -35,7 +35,7 @@ public class AcademicoController {
        return iAcadService.verAcademico();
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PostMapping("/academico/crear")
     public void crearAcad(@RequestBody Academico ac){
         iAcadService.crearAcademico(ac);
@@ -47,14 +47,14 @@ public class AcademicoController {
         return iAcadService.buscarAcademico(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @DeleteMapping("/academico/borrar/{id}")
     public void eliminarAcad(@PathVariable Long id){
         iAcadService.borrarAcademico(id);
         
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PutMapping("/academico/editar/{id}")
     public Academico editarAcademico(@PathVariable Long id, @RequestBody Academico academico){
         Academico ac = iAcadService.buscarAcademico(id);

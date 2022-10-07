@@ -35,7 +35,7 @@ public class PersonaController {
         return iPersonaService.verPersonas();
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PostMapping("/persona/crear")
     public void crearPersona(@RequestBody Persona per){
         iPersonaService.crearPersona(per);
@@ -53,13 +53,13 @@ public class PersonaController {
     }
     
     
-    @PreAuthorize("hasRole('ADMIN')")
+   
     @DeleteMapping("/persona/borrar/{id}")
     public void borrarPersona(@PathVariable Long id){
         iPersonaService.borrarPersona(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+   
     @PutMapping("/persona/editar/{id}")
     public Persona editarPersona(@PathVariable Long id, @RequestBody Persona persona){
         Persona per = iPersonaService.buscarPersona(id);
