@@ -9,6 +9,7 @@ import com.example.apBackend.Interface.IIdiomaService;
 import com.example.apBackend.Models.Idiomas;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +35,7 @@ public class IdiomaController {
         return iIdiomaServ.verIdiomas();
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/idioma/crear")
     public void crearIdioma(@RequestBody Idiomas lang){
         iIdiomaServ.crearIdiomas(lang);
@@ -46,11 +48,13 @@ public class IdiomaController {
     }
     
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/idioma/borrar/{id}")
     public void BorrarIdioma(@PathVariable Long id){
         iIdiomaServ.borrarIdiomas(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/idioma/editar/{id}")
     public Idiomas editarIdioma(@PathVariable Long id, @RequestBody Idiomas idioma){
         Idiomas lang = iIdiomaServ.buscarIdiomas(id);

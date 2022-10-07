@@ -9,6 +9,7 @@ import com.example.apBackend.Interface.IAcademicoService;
 import com.example.apBackend.Models.Academico;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +35,7 @@ public class AcademicoController {
        return iAcadService.verAcademico();
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/academico/crear")
     public void crearAcad(@RequestBody Academico ac){
         iAcadService.crearAcademico(ac);
@@ -45,12 +47,14 @@ public class AcademicoController {
         return iAcadService.buscarAcademico(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/academico/borrar/{id}")
     public void eliminarAcad(@PathVariable Long id){
         iAcadService.borrarAcademico(id);
         
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/academico/editar/{id}")
     public Academico editarAcademico(@PathVariable Long id, @RequestBody Academico academico){
         Academico ac = iAcadService.buscarAcademico(id);

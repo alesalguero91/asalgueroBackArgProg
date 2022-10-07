@@ -9,6 +9,7 @@ import com.example.apBackend.Interface.IPersonaService;
 import com.example.apBackend.Models.Persona;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +35,7 @@ public class PersonaController {
         return iPersonaService.verPersonas();
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/persona/crear")
     public void crearPersona(@RequestBody Persona per){
         iPersonaService.crearPersona(per);
@@ -51,11 +53,13 @@ public class PersonaController {
     }
     
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/persona/borrar/{id}")
     public void borrarPersona(@PathVariable Long id){
         iPersonaService.borrarPersona(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/persona/editar/{id}")
     public Persona editarPersona(@PathVariable Long id, @RequestBody Persona persona){
         Persona per = iPersonaService.buscarPersona(id);
