@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.example.apBackend.ApBackendApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 31.292 s - in com.example.apBackend.ApBackendApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.347 s - in com.example.apBackend.ApBackendApplicationTests
